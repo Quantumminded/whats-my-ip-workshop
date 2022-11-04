@@ -4,6 +4,7 @@ import { getInfo } from './fetches/fetches';
 import { Map, Marker } from "pigeon-maps"
 
 
+
 function App() {
 
   const [ipInfo, setIpInfo] = useState({});

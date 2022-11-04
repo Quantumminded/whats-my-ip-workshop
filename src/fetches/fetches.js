@@ -1,5 +1,7 @@
+const{REACT_APP_API_KEY} = process.env
+
 const getInfo = async () => {
-    const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_fkoGYDggzaRcwG50mgtDpG6iOt9Ac`)
+    const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_${REACT_APP_API_KEY}`)
     const json = await res.json();
 
     // console.log(json);
