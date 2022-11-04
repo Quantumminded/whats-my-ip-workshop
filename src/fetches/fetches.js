@@ -1,13 +1,15 @@
-const getUserInfo = async () => {
-    const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_fkoGYDggzaRcwG50mgtDpG6iOt9Ac&ipAddress=8.8.8.8`)
+const getInfo = async () => {
+    const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_fkoGYDggzaRcwG50mgtDpG6iOt9Ac`)
     const json = await res.json();
 
-    console.log(json);
+    // console.log(json);
     const ip = await json.ip;
     const country = await json.location.country;
     const city = await json.location.city;
     const lat = await json.location.lat;
     const lng = await json.location.lng;
+    const region = await json.location.region;
+    const postalCode = await json.location.postalCode;
     const timezone = await json.location.timezone;
 
     const userLocation = {
@@ -16,13 +18,15 @@ const getUserInfo = async () => {
         city: city,
         lat: lat,
         lng: lng,
+        region: region,
+        postalCode: postalCode,
         timezone: timezone
     }
 
     return userLocation;
 }
 
-export { getUserInfo }
+export { getInfo }
 //Data from the API
 // {
 // 	"ip": "8.8.8.8",
